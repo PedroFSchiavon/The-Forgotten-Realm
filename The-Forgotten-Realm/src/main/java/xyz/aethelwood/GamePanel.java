@@ -9,16 +9,23 @@ public class GamePanel extends JPanel{
     private static final long serialVersionUID = 1L;
 
     // SCREEN SETTINGS
-    public int originalTileSize = 16;
-    public int scale = 3;
-
-    public final int tileSize = originalTileSize * scale;
-    public final int maxScreenCol = 20;
-    public final int maxScreenRow = 15;
-    public final int screenWidth = tileSize * maxScreenCol;
-    public final int screenHeight = tileSize * maxScreenRow;
+    public int originalTileSize;
+    public int scale;
+    public final int tileSize;
+    public final int maxScreenCol;
+    public final int maxScreenRow;
+    public final int screenWidth;
+    public final int screenHeight;
 
     public GamePanel() {
+        this.originalTileSize = 16;
+        this.scale = 3;
+        this.tileSize = originalTileSize * scale;
+        this.maxScreenCol = 20;
+        this.maxScreenRow = 15;
+        this.screenWidth = tileSize * maxScreenCol;
+        this.screenHeight = tileSize * maxScreenRow;
+        
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
