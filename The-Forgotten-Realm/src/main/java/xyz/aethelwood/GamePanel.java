@@ -5,8 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
-public class GamePanel extends JPanel{
-    private static final long serialVersionUID = 1L;
+public class GamePanel extends JPanel implements Runnable{
 
     // SCREEN SETTINGS
     public int originalTileSize;
@@ -16,6 +15,7 @@ public class GamePanel extends JPanel{
     public final int maxScreenRow;
     public final int screenWidth;
     public final int screenHeight;
+    private Thread gameThread;
 
     public GamePanel() {
         this.originalTileSize = 16;
@@ -29,5 +29,15 @@ public class GamePanel extends JPanel{
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
+    }
+
+    public void startGameThread(){
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
+
+    @Override
+    public void run() {
+        
     }
 }
